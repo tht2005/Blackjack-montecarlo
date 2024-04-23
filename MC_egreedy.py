@@ -6,7 +6,7 @@ from BlackJackEnv import Env
 
 NEPISODE = 1000000
 
-EPSILON = 0.05
+EPSILON = 0.1
 def epsilon_greedy(state, G):
     if np.random.sample() < EPSILON:
         return np.random.randint(low=0,high=2)
