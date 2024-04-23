@@ -5,3 +5,6 @@
 
 # MC_egreedy.py
 ![mc e-greedy result](https://github.com/tht2005/Blackjack-montecarlo/blob/main/README_images/MC_egreedy.png?raw=true)
+
+# MC_important_sampling.py
+![mc e-greedy result](https://github.com/tht2005/Blackjack-montecarlo/blob/main/README_images/MC_important_sampling.png?raw=true)
