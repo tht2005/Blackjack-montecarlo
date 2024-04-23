@@ -4,7 +4,7 @@ import numpy as np
 
 from BlackJackEnv import Env
 
-NEPISODE = 1000000
+NEPISODE = 5000000
 
 EPSILON = 0.1
 def epsilon_greedy(state, G):

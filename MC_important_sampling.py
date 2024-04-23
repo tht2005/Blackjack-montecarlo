@@ -4,7 +4,7 @@ import numpy as np
 
 from BlackJackEnv import Env
 
-NEPISODE = 1000000
+NEPISODE = 5000000
 
 GAMMA = 1
 
@@ -53,9 +53,8 @@ for epi in range(NEPISODE):
     if has_ace and S == 11: # natural case
         u, d, s, a = [1, dealer_faceup, S, 1]
 
-        W = 1. / B[u][d][s][a]
-        C[u][d][s][a] += W
-        Q[u][d][s][a] += (W / C[u][d][s][a]) * (1 - Q[u][d][s][a])
+        C[u][d][s][a] += 1
+        Q[u][d][s][a] += (1 / C[u][d][s][a]) * (1 - Q[u][d][s][a])
 
         PI[u][d][s] = np.argmax(Q[u][d][s])
         continue
@@ -116,7 +115,6 @@ for epi in range(NEPISODE):
     for state_action in reversed(this_episode):
         u, d, s, a = state_action
 
-        W /= B[u][d][s][a]
         C[u][d][s][a] += W
         Q[u][d][s][a] += (W / C[u][d][s][a]) * (R - Q[u][d][s][a])
 
@@ -129,6 +127,7 @@ for epi in range(NEPISODE):
         if besta != a:
             break
 
+        W /= B[u][d][s][a]
         R *= GAMMA
 
 
